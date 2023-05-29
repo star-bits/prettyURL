@@ -1,3 +1,7 @@
+chrome.browserAction.setTitle({
+    title: "Single-click: current tab\nDouble-click: all tabs"
+});
+
 // Initialize a counter for clicks
 let clickCount = 0;
 
