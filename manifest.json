@@ -2,7 +2,7 @@
     "manifest_version": 2,
     "name": "prettyURL",
     "version": "1.0",
-    "description": "Decodes the current URL when clicked on the extension button, and copies it to clipboard.",
+    "description": "Click the extension icon to copy readable URL.",
     
     "background": {
       "scripts": ["background.js"],
