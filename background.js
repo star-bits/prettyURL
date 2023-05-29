@@ -1,31 +1,51 @@
-// Listen for browser action (extension icon) click event
+let clickCount = 0;
+
 chrome.browserAction.onClicked.addListener(function(tab) {
-    // Decode the URL of the current tab
+    // Increase click count
+    clickCount++;
+
+    if (clickCount === 1) {
+        // Set a timer: if there's no second click within 250ms, treat this as a single click
+        singleClickTimer = setTimeout(function() {
+            clickCount = 0;
+            singleClickAction(tab);
+        }, 250);
+    } else if (clickCount === 2) {
+        // If there's a second click within 250ms, cancel the single click timer and treat this as a double click
+        clearTimeout(singleClickTimer);
+        clickCount = 0;
+        doubleClickAction(tab);
+    }
+});
+
+function singleClickAction(tab) {
     let url = decodeURIComponent(tab.url);
-
-    // Create a dummy input field
     let dummy = document.createElement('input');
-
-    // Append the dummy input field onto the page
     document.body.appendChild(dummy);
-
-    // Set the value of the input field to the decoded URL
     dummy.value = url;
-
-    // Select the text in the input field
     dummy.select();
-
-    // Execute the copy command
     document.execCommand('copy');
-
-    // Remove the dummy input field from the page
     document.body.removeChild(dummy);
-
-    // Change the browser action icon to green to indicate success
     chrome.browserAction.setIcon({ path: "icons/icon_48_green.png", tabId: tab.id });
-
-    // After 1 second, change the icon back to the default
     setTimeout(() => {
         chrome.browserAction.setIcon({ path: "icons/icon_48.png", tabId: tab.id });
     }, 1000);
-});
+}
+
+function doubleClickAction(tab) {
+    chrome.tabs.query({currentWindow: true}, function(tabs) {
+        let urls = tabs.map(tab => decodeURIComponent(tab.url)).join('\n');
+        let dummy = document.createElement('textarea');
+        document.body.appendChild(dummy);
+
+        dummy.value = urls;
+
+        dummy.select();
+        document.execCommand('copy');
+        document.body.removeChild(dummy);
+    });
+    chrome.browserAction.setIcon({ path: "icons/icon_48_green_all.png", tabId: tab.id });
+    setTimeout(() => {
+        chrome.browserAction.setIcon({ path: "icons/icon_48.png", tabId: tab.id });
+    }, 1000);
+}
