@@ -4,11 +4,11 @@ Click the extension icon to copy human readable URL. Single click copies URL of 
 ## Demo
 https://github.com/star-bits/prettyURL/assets/93939472/741cc51d-53bf-499f-aa7e-e2ee53a54ab1
 
-## Install
+## Install v1.1
+[Install](https://chrome.google.com/webstore/detail/prettyurl/lcmeagcdhbdagiecnoknjkbegpghafnh) prettyURL from Chrome Web Store. Chrome Web Store mandates all newly published extensions to comply Manifest V3, which necessitates obtaining clipboard privacy permissions from each individual website. This means you'll need to manually grant clipboard access to each website. You may avoid this with locally installing v1.0. 
+
+## Install v1.0
 1. [Download](https://github.com/star-bits/prettyURL/archive/refs/tags/v1.0.zip) the extension and unzip it.
 2. Open the Extension Management page by navigating to `chrome://extensions`.
 3. Enable Developer Mode by clicking the toggle switch.
 4. Click the 'Load unpacked' button and select your extension directory.
-
-## Why is it not on Chrome Web Store?
-It seems I need to adapt the extension to comply with Manifest V3 standards before it can be registered on the Chrome Web Store. 
