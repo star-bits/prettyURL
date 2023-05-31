@@ -5,7 +5,7 @@ Click the extension icon to copy human readable URL. Single click copies URL of 
 https://github.com/star-bits/prettyURL/assets/93939472/741cc51d-53bf-499f-aa7e-e2ee53a54ab1
 
 ## Install v1.1
-[Install](https://chrome.google.com/webstore/detail/prettyurl/lcmeagcdhbdagiecnoknjkbegpghafnh) prettyURL from Chrome Web Store. Chrome Web Store mandates all newly published extensions to comply Manifest V3, which necessitates obtaining clipboard privacy permissions from each individual website for using copy functionality. This means you'll need to manually grant clipboard access to each website. You may avoid this by locally installing v1.0, which complies Manifest V2. 
+[Install](https://chrome.google.com/webstore/detail/prettyurl/lcmeagcdhbdagiecnoknjkbegpghafnh) prettyURL from the Chrome Web Store. The Store now requires all newly published extensions to comply with Manifest V3, necessitating the acquisition of clipboard privacy permissions from each specific website before using copy functionalities. This means you'll need to individually authorize clipboard access for each website. To avoid this, consider locally installing v1.0, which aligns with Manifest V2.
 
 ## Install v1.0
 1. [Download](https://github.com/star-bits/prettyURL/archive/refs/tags/v1.0.zip) the extension and unzip it.
